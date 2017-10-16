@@ -1,0 +1,231 @@
+/media/data/mtriet/scnn/C3D-v1.0/C3D_sample_rate/build/tools/extract_image_features.bin: /usr/local/MATLAB/R2016a/bin/glnxa64/libtiff.so.5: no version information available (required by /usr/lib/x86_64-linux-gnu/libopencv_highgui.so.2.4)
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+E1016 15:21:11.250586 11009 extract_image_features.cpp:55] Using GPU #0
+I1016 15:21:11.251746 11009 net.cpp:65] Memory required for Data0
+I1016 15:21:11.251773 11009 net.cpp:76] Creating Layer data
+I1016 15:21:11.251777 11009 net.cpp:112] data -> data
+I1016 15:21:11.251786 11009 net.cpp:112] data -> label
+I1016 15:21:11.251796 11009 video_data_layer.cpp:283] Opening file /media/data/mtriet/scnn/experiments/huawei_c3d1.0/network_proposal/test_uniform16_proposal.lst
+I1016 15:21:11.252444 11009 video_data_layer.cpp:318] A total of 1561 video chunks.
+I1016 15:21:11.252449 11009 video_data_layer.cpp:345] read video from frame/russ_newzealand_003/
+I1016 15:21:11.340921 11009 video_data_layer.cpp:366] output data size: 20,3,16,112,112
+I1016 15:21:11.340939 11009 video_data_layer.cpp:401] Using mean value of 128
+I1016 15:21:11.347177 11009 video_data_layer.cpp:417] Initializing prefetch
+I1016 15:21:11.347229 11009 video_data_layer.cpp:419] Prefetch initialized.
+I1016 15:21:11.347252 11009 net.cpp:127] Top shape: 20 3 16 112 112 (12042240)
+I1016 15:21:11.347256 11009 net.cpp:127] Top shape: 20 1 1 1 1 (20)
+I1016 15:21:11.347259 11009 net.cpp:136] Memory  required for Data 48169040
+I1016 15:21:11.347265 11009 net.cpp:159] data does not need backward computation.
+I1016 15:21:11.347280 11009 net.cpp:76] Creating Layer conv1a
+I1016 15:21:11.347285 11009 net.cpp:86] conv1a <- data
+I1016 15:21:11.347295 11009 net.cpp:112] conv1a -> conv1a
+I1016 15:21:11.348160 11009 net.cpp:127] Top shape: 20 64 16 112 112 (256901120)
+I1016 15:21:11.348165 11009 net.cpp:136] Memory  required for Data 1075773520
+I1016 15:21:11.348168 11009 net.cpp:154] conv1a needs backward computation.
+I1016 15:21:11.348173 11009 net.cpp:76] Creating Layer relu1a
+I1016 15:21:11.348176 11009 net.cpp:86] relu1a <- conv1a
+I1016 15:21:11.348182 11009 net.cpp:100] relu1a -> conv1a (in-place)
+I1016 15:21:11.348186 11009 net.cpp:127] Top shape: 20 64 16 112 112 (256901120)
+I1016 15:21:11.348189 11009 net.cpp:136] Memory  required for Data 1075773520
+I1016 15:21:11.348191 11009 net.cpp:154] relu1a needs backward computation.
+I1016 15:21:11.348196 11009 net.cpp:76] Creating Layer pool1
+I1016 15:21:11.348199 11009 net.cpp:86] pool1 <- conv1a
+I1016 15:21:11.348202 11009 net.cpp:112] pool1 -> pool1
+I1016 15:21:11.348209 11009 net.cpp:127] Top shape: 20 64 16 56 56 (64225280)
+I1016 15:21:11.348212 11009 net.cpp:136] Memory  required for Data 1332674640
+I1016 15:21:11.348214 11009 net.cpp:154] pool1 needs backward computation.
+I1016 15:21:11.348220 11009 net.cpp:76] Creating Layer conv2a
+I1016 15:21:11.348222 11009 net.cpp:86] conv2a <- pool1
+I1016 15:21:11.348227 11009 net.cpp:112] conv2a -> conv2a
+I1016 15:21:11.363523 11009 net.cpp:127] Top shape: 20 128 16 56 56 (128450560)
+I1016 15:21:11.363536 11009 net.cpp:136] Memory  required for Data 1846476880
+I1016 15:21:11.363540 11009 net.cpp:154] conv2a needs backward computation.
+I1016 15:21:11.363548 11009 net.cpp:76] Creating Layer relu2a
+I1016 15:21:11.363554 11009 net.cpp:86] relu2a <- conv2a
+I1016 15:21:11.363560 11009 net.cpp:100] relu2a -> conv2a (in-place)
+I1016 15:21:11.363565 11009 net.cpp:127] Top shape: 20 128 16 56 56 (128450560)
+I1016 15:21:11.363569 11009 net.cpp:136] Memory  required for Data 1846476880
+I1016 15:21:11.363572 11009 net.cpp:154] relu2a needs backward computation.
+I1016 15:21:11.363577 11009 net.cpp:76] Creating Layer pool2
+I1016 15:21:11.363580 11009 net.cpp:86] pool2 <- conv2a
+I1016 15:21:11.363584 11009 net.cpp:112] pool2 -> pool2
+I1016 15:21:11.363590 11009 net.cpp:127] Top shape: 20 128 8 28 28 (16056320)
+I1016 15:21:11.363593 11009 net.cpp:136] Memory  required for Data 1910702160
+I1016 15:21:11.363596 11009 net.cpp:154] pool2 needs backward computation.
+I1016 15:21:11.363602 11009 net.cpp:76] Creating Layer conv3a
+I1016 15:21:11.363611 11009 net.cpp:86] conv3a <- pool2
+I1016 15:21:11.363615 11009 net.cpp:112] conv3a -> conv3a
+I1016 15:21:11.424962 11009 net.cpp:127] Top shape: 20 256 8 28 28 (32112640)
+I1016 15:21:11.424981 11009 net.cpp:136] Memory  required for Data 2039152720
+I1016 15:21:11.424985 11009 net.cpp:154] conv3a needs backward computation.
+I1016 15:21:11.424998 11009 net.cpp:76] Creating Layer relu3a
+I1016 15:21:11.425002 11009 net.cpp:86] relu3a <- conv3a
+I1016 15:21:11.425009 11009 net.cpp:100] relu3a -> conv3a (in-place)
+I1016 15:21:11.425014 11009 net.cpp:127] Top shape: 20 256 8 28 28 (32112640)
+I1016 15:21:11.425017 11009 net.cpp:136] Memory  required for Data 2039152720
+I1016 15:21:11.425019 11009 net.cpp:154] relu3a needs backward computation.
+I1016 15:21:11.425025 11009 net.cpp:76] Creating Layer conv3b
+I1016 15:21:11.425029 11009 net.cpp:86] conv3b <- conv3a
+I1016 15:21:11.425032 11009 net.cpp:112] conv3b -> conv3b
+I1016 15:21:11.569079 11009 net.cpp:127] Top shape: 20 256 8 28 28 (32112640)
+I1016 15:21:11.569104 11009 net.cpp:136] Memory  required for Data 2167603280
+I1016 15:21:11.569110 11009 net.cpp:154] conv3b needs backward computation.
+I1016 15:21:11.569123 11009 net.cpp:76] Creating Layer relu3b
+I1016 15:21:11.569129 11009 net.cpp:86] relu3b <- conv3b
+I1016 15:21:11.569140 11009 net.cpp:100] relu3b -> conv3b (in-place)
+I1016 15:21:11.569147 11009 net.cpp:127] Top shape: 20 256 8 28 28 (32112640)
+I1016 15:21:11.569151 11009 net.cpp:136] Memory  required for Data 2167603280
+I1016 15:21:11.569155 11009 net.cpp:154] relu3b needs backward computation.
+I1016 15:21:11.569164 11009 net.cpp:76] Creating Layer pool3
+I1016 15:21:11.569167 11009 net.cpp:86] pool3 <- conv3b
+I1016 15:21:11.569175 11009 net.cpp:112] pool3 -> pool3
+I1016 15:21:11.569186 11009 net.cpp:127] Top shape: 20 256 4 14 14 (4014080)
+I1016 15:21:11.569191 11009 net.cpp:136] Memory  required for Data 2183659600
+I1016 15:21:11.569195 11009 net.cpp:154] pool3 needs backward computation.
+I1016 15:21:11.569205 11009 net.cpp:76] Creating Layer conv4a
+I1016 15:21:11.569208 11009 net.cpp:86] conv4a <- pool3
+I1016 15:21:11.569214 11009 net.cpp:112] conv4a -> conv4a
+I1016 15:21:11.833078 11009 net.cpp:127] Top shape: 20 512 4 14 14 (8028160)
+I1016 15:21:11.833098 11009 net.cpp:136] Memory  required for Data 2215772240
+I1016 15:21:11.833102 11009 net.cpp:154] conv4a needs backward computation.
+I1016 15:21:11.833111 11009 net.cpp:76] Creating Layer relu4a
+I1016 15:21:11.833115 11009 net.cpp:86] relu4a <- conv4a
+I1016 15:21:11.833122 11009 net.cpp:100] relu4a -> conv4a (in-place)
+I1016 15:21:11.833127 11009 net.cpp:127] Top shape: 20 512 4 14 14 (8028160)
+I1016 15:21:11.833130 11009 net.cpp:136] Memory  required for Data 2215772240
+I1016 15:21:11.833132 11009 net.cpp:154] relu4a needs backward computation.
+I1016 15:21:11.833138 11009 net.cpp:76] Creating Layer conv4b
+I1016 15:21:11.833142 11009 net.cpp:86] conv4b <- conv4a
+I1016 15:21:11.833145 11009 net.cpp:112] conv4b -> conv4b
+I1016 15:21:12.326678 11009 net.cpp:127] Top shape: 20 512 4 14 14 (8028160)
+I1016 15:21:12.326696 11009 net.cpp:136] Memory  required for Data 2247884880
+I1016 15:21:12.326699 11009 net.cpp:154] conv4b needs backward computation.
+I1016 15:21:12.326707 11009 net.cpp:76] Creating Layer relu4b
+I1016 15:21:12.326712 11009 net.cpp:86] relu4b <- conv4b
+I1016 15:21:12.326720 11009 net.cpp:100] relu4b -> conv4b (in-place)
+I1016 15:21:12.326725 11009 net.cpp:127] Top shape: 20 512 4 14 14 (8028160)
+I1016 15:21:12.326727 11009 net.cpp:136] Memory  required for Data 2247884880
+I1016 15:21:12.326730 11009 net.cpp:154] relu4b needs backward computation.
+I1016 15:21:12.326738 11009 net.cpp:76] Creating Layer pool4
+I1016 15:21:12.326740 11009 net.cpp:86] pool4 <- conv4b
+I1016 15:21:12.326745 11009 net.cpp:112] pool4 -> pool4
+I1016 15:21:12.326750 11009 net.cpp:127] Top shape: 20 512 2 7 7 (1003520)
+I1016 15:21:12.326753 11009 net.cpp:136] Memory  required for Data 2251898960
+I1016 15:21:12.326756 11009 net.cpp:154] pool4 needs backward computation.
+I1016 15:21:12.326761 11009 net.cpp:76] Creating Layer conv5a
+I1016 15:21:12.326769 11009 net.cpp:86] conv5a <- pool4
+I1016 15:21:12.326773 11009 net.cpp:112] conv5a -> conv5a
+I1016 15:21:12.825331 11009 net.cpp:127] Top shape: 20 512 2 7 7 (1003520)
+I1016 15:21:12.825352 11009 net.cpp:136] Memory  required for Data 2255913040
+I1016 15:21:12.825356 11009 net.cpp:154] conv5a needs backward computation.
+I1016 15:21:12.825364 11009 net.cpp:76] Creating Layer relu5a
+I1016 15:21:12.825369 11009 net.cpp:86] relu5a <- conv5a
+I1016 15:21:12.825377 11009 net.cpp:100] relu5a -> conv5a (in-place)
+I1016 15:21:12.825381 11009 net.cpp:127] Top shape: 20 512 2 7 7 (1003520)
+I1016 15:21:12.825383 11009 net.cpp:136] Memory  required for Data 2255913040
+I1016 15:21:12.825387 11009 net.cpp:154] relu5a needs backward computation.
+I1016 15:21:12.825392 11009 net.cpp:76] Creating Layer conv5b
+I1016 15:21:12.825394 11009 net.cpp:86] conv5b <- conv5a
+I1016 15:21:12.825397 11009 net.cpp:112] conv5b -> conv5b
+I1016 15:21:13.315758 11009 net.cpp:127] Top shape: 20 512 2 7 7 (1003520)
+I1016 15:21:13.315776 11009 net.cpp:136] Memory  required for Data 2259927120
+I1016 15:21:13.315779 11009 net.cpp:154] conv5b needs backward computation.
+I1016 15:21:13.315788 11009 net.cpp:76] Creating Layer relu5b
+I1016 15:21:13.315793 11009 net.cpp:86] relu5b <- conv5b
+I1016 15:21:13.315800 11009 net.cpp:100] relu5b -> conv5b (in-place)
+I1016 15:21:13.315805 11009 net.cpp:127] Top shape: 20 512 2 7 7 (1003520)
+I1016 15:21:13.315807 11009 net.cpp:136] Memory  required for Data 2259927120
+I1016 15:21:13.315810 11009 net.cpp:154] relu5b needs backward computation.
+I1016 15:21:13.315814 11009 net.cpp:76] Creating Layer pool5
+I1016 15:21:13.315817 11009 net.cpp:86] pool5 <- conv5b
+I1016 15:21:13.315821 11009 net.cpp:112] pool5 -> pool5
+I1016 15:21:13.315827 11009 net.cpp:127] Top shape: 20 512 1 4 4 (163840)
+I1016 15:21:13.315829 11009 net.cpp:136] Memory  required for Data 2260582480
+I1016 15:21:13.315831 11009 net.cpp:154] pool5 needs backward computation.
+I1016 15:21:13.315837 11009 net.cpp:76] Creating Layer fc6-1
+I1016 15:21:13.315840 11009 net.cpp:86] fc6-1 <- pool5
+I1016 15:21:13.315843 11009 net.cpp:112] fc6-1 -> fc6-1
+I1016 15:21:15.662338 11009 net.cpp:127] Top shape: 20 4096 1 1 1 (81920)
+I1016 15:21:15.662364 11009 net.cpp:136] Memory  required for Data 2260910160
+I1016 15:21:15.662369 11009 net.cpp:154] fc6-1 needs backward computation.
+I1016 15:21:15.662379 11009 net.cpp:76] Creating Layer relu6
+I1016 15:21:15.662389 11009 net.cpp:86] relu6 <- fc6-1
+I1016 15:21:15.662397 11009 net.cpp:100] relu6 -> fc6-1 (in-place)
+I1016 15:21:15.662403 11009 net.cpp:127] Top shape: 20 4096 1 1 1 (81920)
+I1016 15:21:15.662406 11009 net.cpp:136] Memory  required for Data 2260910160
+I1016 15:21:15.662408 11009 net.cpp:154] relu6 needs backward computation.
+I1016 15:21:15.662415 11009 net.cpp:76] Creating Layer drop6
+I1016 15:21:15.662417 11009 net.cpp:86] drop6 <- fc6-1
+I1016 15:21:15.662420 11009 net.cpp:100] drop6 -> fc6-1 (in-place)
+I1016 15:21:15.662425 11009 net.cpp:127] Top shape: 20 4096 1 1 1 (81920)
+I1016 15:21:15.662428 11009 net.cpp:136] Memory  required for Data 2260910160
+I1016 15:21:15.662431 11009 net.cpp:154] drop6 needs backward computation.
+I1016 15:21:15.662436 11009 net.cpp:76] Creating Layer fc7-1
+I1016 15:21:15.662438 11009 net.cpp:86] fc7-1 <- fc6-1
+I1016 15:21:15.662441 11009 net.cpp:112] fc7-1 -> fc7-1
+I1016 15:21:16.810346 11009 net.cpp:127] Top shape: 20 4096 1 1 1 (81920)
+I1016 15:21:16.810364 11009 net.cpp:136] Memory  required for Data 2261237840
+I1016 15:21:16.810369 11009 net.cpp:154] fc7-1 needs backward computation.
+I1016 15:21:16.810379 11009 net.cpp:76] Creating Layer relu7
+I1016 15:21:16.810384 11009 net.cpp:86] relu7 <- fc7-1
+I1016 15:21:16.810392 11009 net.cpp:100] relu7 -> fc7-1 (in-place)
+I1016 15:21:16.810397 11009 net.cpp:127] Top shape: 20 4096 1 1 1 (81920)
+I1016 15:21:16.810400 11009 net.cpp:136] Memory  required for Data 2261237840
+I1016 15:21:16.810403 11009 net.cpp:154] relu7 needs backward computation.
+I1016 15:21:16.810407 11009 net.cpp:76] Creating Layer drop7
+I1016 15:21:16.810416 11009 net.cpp:86] drop7 <- fc7-1
+I1016 15:21:16.810420 11009 net.cpp:100] drop7 -> fc7-1 (in-place)
+I1016 15:21:16.810425 11009 net.cpp:127] Top shape: 20 4096 1 1 1 (81920)
+I1016 15:21:16.810427 11009 net.cpp:136] Memory  required for Data 2261237840
+I1016 15:21:16.810430 11009 net.cpp:154] drop7 needs backward computation.
+I1016 15:21:16.810436 11009 net.cpp:76] Creating Layer fc8_fb
+I1016 15:21:16.810438 11009 net.cpp:86] fc8_fb <- fc7-1
+I1016 15:21:16.810442 11009 net.cpp:112] fc8_fb -> fc8_fb
+I1016 15:21:16.811012 11009 net.cpp:127] Top shape: 20 2 1 1 1 (40)
+I1016 15:21:16.811015 11009 net.cpp:136] Memory  required for Data 2261238000
+I1016 15:21:16.811018 11009 net.cpp:154] fc8_fb needs backward computation.
+I1016 15:21:16.811022 11009 net.cpp:76] Creating Layer prob
+I1016 15:21:16.811025 11009 net.cpp:86] prob <- fc8_fb
+I1016 15:21:16.811030 11009 net.cpp:112] prob -> prob
+I1016 15:21:16.811035 11009 net.cpp:127] Top shape: 20 2 1 1 1 (40)
+I1016 15:21:16.811038 11009 net.cpp:136] Memory  required for Data 2261238160
+I1016 15:21:16.811040 11009 net.cpp:154] prob needs backward computation.
+I1016 15:21:16.811043 11009 net.cpp:165] This network produces output label
+I1016 15:21:16.811046 11009 net.cpp:165] This network produces output prob
+I1016 15:21:16.811072 11009 net.cpp:183] Collecting Learning Rate and Weight Decay.
+I1016 15:21:16.811091 11009 net.cpp:176] Network initialization done.
+I1016 15:21:16.811094 11009 net.cpp:177] Memory required for Data 2261238160
+I1016 15:21:18.262312 11009 net.cpp:323] Copying source layer data
+I1016 15:21:18.262332 11009 net.cpp:323] Copying source layer conv1a
+I1016 15:21:18.262390 11009 net.cpp:323] Copying source layer relu1a
+I1016 15:21:18.262393 11009 net.cpp:323] Copying source layer pool1
+I1016 15:21:18.262397 11009 net.cpp:323] Copying source layer conv2a
+I1016 15:21:18.264248 11009 net.cpp:323] Copying source layer relu2a
+I1016 15:21:18.264253 11009 net.cpp:323] Copying source layer pool2
+I1016 15:21:18.264256 11009 net.cpp:323] Copying source layer conv3a
+I1016 15:21:18.271468 11009 net.cpp:323] Copying source layer relu3a
+I1016 15:21:18.271479 11009 net.cpp:323] Copying source layer conv3b
+I1016 15:21:18.286348 11009 net.cpp:323] Copying source layer relu3b
+I1016 15:21:18.286365 11009 net.cpp:323] Copying source layer pool3
+I1016 15:21:18.286367 11009 net.cpp:323] Copying source layer conv4a
+I1016 15:21:18.315805 11009 net.cpp:323] Copying source layer relu4a
+I1016 15:21:18.315819 11009 net.cpp:323] Copying source layer conv4b
+I1016 15:21:18.374269 11009 net.cpp:323] Copying source layer relu4b
+I1016 15:21:18.374294 11009 net.cpp:323] Copying source layer pool4
+I1016 15:21:18.374296 11009 net.cpp:323] Copying source layer conv5a
+I1016 15:21:18.432346 11009 net.cpp:323] Copying source layer relu5a
+I1016 15:21:18.432365 11009 net.cpp:323] Copying source layer conv5b
+I1016 15:21:18.489984 11009 net.cpp:323] Copying source layer relu5b
+I1016 15:21:18.490001 11009 net.cpp:323] Copying source layer pool5
+I1016 15:21:18.490005 11009 net.cpp:323] Copying source layer fc6-1
+I1016 15:21:18.765347 11009 net.cpp:323] Copying source layer relu6
+I1016 15:21:18.765368 11009 net.cpp:323] Copying source layer drop6
+I1016 15:21:18.765372 11009 net.cpp:323] Copying source layer fc7-1
+I1016 15:21:18.905858 11009 net.cpp:323] Copying source layer relu7
+I1016 15:21:18.905882 11009 net.cpp:323] Copying source layer drop7
+I1016 15:21:18.905885 11009 net.cpp:323] Copying source layer fc8_fb
+I1016 15:21:18.905959 11009 net.cpp:320] Ignoring source layer loss
+E1016 15:21:18.906675 11009 extract_image_features.cpp:72] Extracting features for 100000 batches
+E1016 15:21:19.571668 11009 extract_image_features.cpp:108] Extracted features of 20 images.
+I1016 15:23:16.665967 11354 video_data_layer.cpp:242] Restarting data prefetching from start.
+E1016 15:23:20.014228 11009 extract_image_features.cpp:112] Successfully extracted 1561 features!

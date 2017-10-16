@@ -1,0 +1,9 @@
+*.txt
+*.solverstate
+network_classification/
+network_proposal/
+network_localization/
+frame/
+annotation/
+*.m~
+*.log
