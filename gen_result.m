@@ -59,7 +59,7 @@ for i = 1:length(videonames)
            res(seg_swin(i,11),seg_swin(i,3):seg_swin(i,4)) = seg_swin(i,9);           
         end
         
-        save(['../final/seg_swin_', videoname ,'_',num2str(thres(j)),'.mat'],'seg_swin','res','-v7.3');
+        save(['../final/seg_swin_', videoname ,'_',num2str(thres(j)),'.mat'],'seg_swin','res');
         fclose(fout);
         fprintf(['post-processing done in ' num2str(toc) ' s\nEvaluation start!']);        
         %% evaluation

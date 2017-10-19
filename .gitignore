@@ -7,3 +7,4 @@ frame/
 annotation/
 *.m~
 *.log
+final/*.mat
