@@ -42,6 +42,10 @@ for i=1:length(videonames)
     detevents(i).timeinterval=[t1(i) t2(i)];     
 end
 
+if isempty(detevents)
+    return;
+end
+
 % Evaluate per-class PR for multiple overlap thresholds
 name = detevents(1).videoname;
 mask=arrayfun(@(a) all(a.videoname==name), gtevents);

@@ -1,0 +1,8 @@
+Two approaches for evaluate a video
+
+1. Split, classify then concat
+gen_result('/media/data/mtriet/raw_video/fb_eval_split/aus_de_001/', 'fb', false)
+concatenate_result('final/','seg_swin_aus_de_001_*')
+
+2. Do with untrimmed video
+gen_result('/media/data/mtriet/raw_video/fb_eval/', 'fb', false)

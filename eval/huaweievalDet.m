@@ -58,9 +58,8 @@ end
 
 clear gtevents
 gteventscount=0;
-th14classnamesamb=cat(1,th14classnames,'ambiguous');
-for i=1:length(th14classnamesamb) 
-  class=th14classnamesamb{i};
+for i=1:length(th14classnames) 
+  class=th14classnames{i};
   gtfilename=[gtpath '/' class '_' subset '.txt'];
   if exist(gtfilename,'file')~=2
     error(['TH14evaldet: Could not find GT file ' gtfilename])
@@ -108,12 +107,11 @@ end
 
 ap_all=[];
 clear pr_all
-
+% skip bg classes
 for i=1:length(th14classnames)
   class=th14classnames{i};
   classid=strmatch(class,th14classnames,'exact');
   assert(length(classid)==1);
-
     [rec,prec,ap]=huaweieventdetpr(detevents,gtevents,class,threshold);
     pr_all(i,1).class=class;
     pr_all(i,1).classid=classid;
@@ -142,9 +140,7 @@ unsortConf=[];
 unsortFlag=[];
 npos=length(strmatch(class,{gtevents.class},'exact'));
 assert(npos>0)
-
 indgtclass=strmatch(class,{gtevents.class},'exact');
-indambclass=strmatch('Ambiguous',{gtevents.class},'exact');
 inddetclass=strmatch(class,{detevents.class},'exact');
 
 if length(inddetclass)==0
@@ -162,7 +158,6 @@ for i=1:length(videonames)
     
   correctPortionName{i,1}=videonames{i};
   gt=gtevents(intersect(strmatch(videonames{i},gtvideonames,'exact'),indgtclass));
-  amb=gtevents(intersect(strmatch(videonames{i},gtvideonames,'exact'),indambclass)); 
   det=detevents(intersect(strmatch(videonames{i},detvideonames,'exact'),inddetclass));
   
   % find in gt what has similar interval
@@ -177,7 +172,6 @@ for i=1:length(videonames)
     det=det(is);
     conf=[det(:).conf];
     indfree=ones(1,length(det));
-    indamb=zeros(1,length(det));
 
     % interesct event detection intervals with GT
     if length(gt)      
@@ -191,16 +185,9 @@ for i=1:length(videonames)
       end
     end
     
-    % respect ambiguous events (overlapping detections will be removed from the FP list)
-    if length(amb)
-      ovamb=intervaloverlapvalseconds(cat(1,amb(:).timeinterval),cat(1,det(:).timeinterval));
-      indamb=sum(ovamb,1);
-    end
-    
     idx1 = find(indfree==0);
-    idx2 = find(indfree==1 & indamb==0);
-    flag = [ones(size(idx1)) 2*ones(size(idx2))];
-    [idxall, ttIdx] = sort([idx1 idx2]);
+    flag = [ones(size(idx1))];
+    [idxall, ttIdx] = sort([idx1]);
     flagall = flag(ttIdx);
     unsortConf = [unsortConf conf(idxall)];
     unsortFlag = [unsortFlag flagall];
@@ -217,7 +204,6 @@ end
 
 %conf=[tpconf fpconf; 1*ones(size(tpconf)) 2*ones(size(fpconf))];
 conf=[unsortConf; unsortFlag];
-
 [vs,is]=sort(-conf(1,:));
 tp=cumsum(conf(2,is)==1);
 fp=cumsum(conf(2,is)==2);

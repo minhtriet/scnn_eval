@@ -7,17 +7,20 @@ detfilename = ['tmp_', sport, '.txt'];
 gtpath = ['../annotation/',sport,'/annotation_val/'];
 subset = 'val';
 num_class = containers.Map({'fb','bb'},[5,7]);
-
 for threshold = 0.3:0.1:0.7
 
-    load('../final/seg_swin.mat');    
+    load(['../final/' sport '/seg_swin.mat']);
+    seg_swin=seg_swin';
     seg_swin=seg_swin(seg_swin(:,11)~=0,:);
         
     % adjust conf via the distribution of window length
-    load(['../window_weight/', sport, '_weight.mat']);    
-    for i=1:length(seg_swin)        
-        seg_swin(i,9)=seg_swin(i,9).*weight(log2(seg_swin(i,2)/16)+1,seg_swin(i,11));
-    end
+    % no need since can be slo-mo video
+    %load(['../window_weight/', sport, '_weight.mat']);    
+    %for i=1:length(seg_swin)
+    %    i
+    %    keyboard 
+    %    seg_swin(i,9)=seg_swin(i,9).*weight(log2(seg_swin(i,2)/16)+1,seg_swin(i,11));
+    %end
     
 	% ===============================
 	% NMS after detection - per video
@@ -58,7 +61,7 @@ for threshold = 0.3:0.1:0.7
     PR_all{end+1}=pr_all;
     ave_rec = 0;
     for ii=1:num_class(sport)
-        ave_rec = ave_rec + pr_all(ii).rec(end);
+      ave_rec = ave_rec + pr_all(ii).rec(end);
     end
     ave_rec = ave_rec/num_class(sport);
     REC_all=[REC_all,ave_rec];

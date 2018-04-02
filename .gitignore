@@ -8,3 +8,4 @@ annotation/
 *.m~
 *.log
 final/*.mat
+ground_truth/*.mat
